@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shilat2132/internship_test.git"
+  },
+  "author": "shilat dahan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shilat2132/internship_test/issues"
+  },
+  "homepage": "https://github.com/shilat2132/internship_test#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.9"
+  }
+}
