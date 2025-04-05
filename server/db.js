@@ -18,4 +18,38 @@ db.connect((err) => {
   console.log("The database's connection id " + db.threadId);
 });
 
+
+const meetingsTableQuery = `
+CREATE TABLE IF NOT EXISTS meetings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) DEFAULT 'Meeting',
+  date DATE NOT NULL,
+  hour TIME NOT NULL,
+  user_id INT, 
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+`;
+
+db.query(meetingsTableQuery, (err, results) => {
+  if (err) {
+    console.error("Couldn't create a table", err);
+  } 
+});
+
+
+
+const usersTableQuery = `
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE
+);
+`;
+
+db.query(usersTableQuery, (err, results) => {
+  if (err) {
+    console.error("Couldn't create a table", err);
+  } 
+});
+
 module.exports = db;
