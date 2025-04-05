@@ -10,7 +10,6 @@ router.get("/", (req, res)=>{
             console.error('Error executing query:', err);
             return res.status(500).send('Internal Server Error');
         }
-        console.log('Query results:', results);
         res.json(results);
     });
 
