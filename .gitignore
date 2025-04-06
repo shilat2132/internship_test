@@ -13,6 +13,24 @@ dist-ssr
 *.local
 
 # Editor directories and files
+# Ignore node_modules directories
+/client/node_modules
+/server/node_modules
+
+# Ignore logs
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Ignore build outputs
+/client/dist
+/client/dist-ssr
+/client/*.local
+
+# Ignore editor-specific files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +40,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignore server environment files
+/server/config.env
+
+# Ignore server logs
+/server/logs
+/.vscode
