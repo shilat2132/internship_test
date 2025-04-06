@@ -1,13 +1,18 @@
 const express = require("express");
 const app = express();
-const meetingsRouter = require("./endpoints/meetings");
+const db = require("./db");
 
+
+// routers imports
+const meetingsRouter = require("./endpoints/meetings");
+const usersRouter = require("./endpoints/users");
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/meetings", meetingsRouter);
+app.use("/api/users", usersRouter);
 
 process.on('SIGINT', () => {
   console.log("Closing database connection...");

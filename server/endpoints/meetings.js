@@ -10,7 +10,7 @@ const getAllMeetings = (req, res)=>{
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            return res.status(500).send('Internal Server Error');
+            return res.status(500).send(err);
         }
         res.status(200).json(results);
     });
@@ -26,7 +26,7 @@ const createAMeeting = (req, res)=>{
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            return res.status(500).send('Internal Server Error');
+            return res.status(500).send(err);
         }
         res.status(200).json("Meeting created successfully");
     });
@@ -42,7 +42,7 @@ const getAMeeting = (req, res)=>{
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            return res.status(500).send('Internal Server Error');
+            return res.status(500).send(err);
         }
         if (results.length === 0) {
             return res.status(404).send('Meeting not found');
@@ -76,7 +76,7 @@ const updateAMeeting = (req, res)=>{
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            return res.status(500).send('Internal Server Error');
+            return res.status(500).send(err);
         }
         res.status(200).json("Meeting updated successfully");
     });
@@ -92,7 +92,7 @@ const deleteAMeeting = (req, res)=>{
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            return res.status(500).send('Internal Server Error');
+            return res.status(500).send(err);
         }
         res.status(200).json("Meeting deleted successfully");
     });

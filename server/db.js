@@ -24,9 +24,11 @@ CREATE TABLE IF NOT EXISTS meetings (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) DEFAULT 'Meeting',
   date DATE NOT NULL,
-  hour TIME NOT NULL,
-  user_id INT, 
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  start_hour TIME NOT NULL,
+  end_hour TIME NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  CHECK (start_hour < end_hour) -- Ensure start_hour is before end_hour
 );
 `;
 
